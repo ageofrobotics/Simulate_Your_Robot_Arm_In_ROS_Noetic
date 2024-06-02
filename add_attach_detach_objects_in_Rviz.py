@@ -1,5 +1,10 @@
 #! /usr/bin/env python3
 
+#Author https://www.youtube.com/@Age.of.Robotics
+
+#The code in this script is based on Moveit Tutorials
+#https://moveit.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html
+
 # Python 2/3 compatibility imports
 from __future__ import print_function
 from six.moves import input

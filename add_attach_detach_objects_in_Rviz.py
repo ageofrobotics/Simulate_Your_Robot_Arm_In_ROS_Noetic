@@ -186,7 +186,7 @@ def main():
         task = input("Enter add to add object, attch to attach object, detach to detach object and remove to remove object: ")
         
         if task == "add":
-            response = robotArm.add_box("package$1",0.00,0.6059,0.015,0.03,0.03,0.03)
+            response = robotArm.add_box("package$1",0.00,0.6318,0.015,0.03,0.03,0.03)
             if response == True:
                 rospy.loginfo('\033[32m' + "Added Object in Rviz: {}".format(robotArm.box_name) + '\033[0m')
             

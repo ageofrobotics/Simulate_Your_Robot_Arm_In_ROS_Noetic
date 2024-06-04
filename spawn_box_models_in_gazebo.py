@@ -131,7 +131,7 @@ if __name__ == '__main__':
 
     #Create a request to create cube
     request= create_cube_request(cude_sdf_model, "package$1",
-                              0.00, 0.6059, 0.015,  # position
+                              0.00, 0.6318, 0.015,  # position
                               0.0, 0.0, 0.0,  # rotation
                               0.03, 0.03, 0.03)  # size
     #Call the service to spawn the box

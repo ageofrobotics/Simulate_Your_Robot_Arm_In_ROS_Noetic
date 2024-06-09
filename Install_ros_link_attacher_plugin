@@ -1,0 +1,45 @@
+	******** Author https://www.youtube.com/@Age.of.Robotics *******
+	1.  First, we need to copy the gazebo_ros_link_attacher package to our workspace
+	2. So, go to the below URL
+		https://github.com/pal-robotics/gazebo_ros_link_attacher
+
+	3. Now open a terminal
+	4. Go to your workspace. 
+		$ cd ~/moveit_ws/src
+	5. Clone the gazebo_ros_link_attacher package to your workspace using below command
+		$ git clone https://github.com/pal-robotics/gazebo_ros_link_attacher.git
+
+	6. Using File browser, go to your "workspace/scr/robot_arm_urdf/launch" folder and open the "arm_urdf.launch" file in a text editor
+		We need to launch the "test_attacher.world" world file from the gazebo_ros_link_attacher package to initialize the plugin.
+	9. Add the below arguments in the launch file
+		  <!-- Arguments -->
+		  <arg name="paused" default="false"/>
+		  <arg name="use_sim_time" default="true"/>
+		  <arg name="gui" default="true"/>
+		  <arg name="rviz" default = "false"/>
+		  <arg name="headless" default="false"/>
+		  <arg name="debug" default="false"/>
+		  <arg name="extra_gazebo_args" default="--verbose"/>
+		  
+	10. Now find the below line of code in the launch file
+		<include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
+	11. Replace the above line of code with the below lines of code
+
+		<!--spawn a empty gazebo world-->
+		<include file="$(find gazebo_ros)/launch/empty_world.launch">
+			<arg name="world_name" value="$(find gazebo_ros_link_attacher)/worlds/test_attacher.world"/>
+			<arg name="debug" value="$(arg debug)" />
+			<arg name="gui" value="$(arg gui)" />
+			<arg name="paused" value="$(arg paused)"/>
+			<arg name="use_sim_time" value="$(arg use_sim_time)"/>
+			<arg name="headless" value="$(arg headless)"/>
+			<arg name="extra_gazebo_args" value="$(arg extra_gazebo_args)"/>
+		</include>
+		
+	12. now we are ready to build our workspace.
+	13. Go to your workspace
+		$ cd ~/moveit_ws/
+	14. Build the workspace
+		$ catkin build
+	15. For the steps to check if the plugin is correctly installed or not, please watch the video carefully.
